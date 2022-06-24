@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Battle index{% endblock %}
+
+{% block body %}
+    <h1>Battle index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateOfBattle</th>
+                <th>players</th>
+                <th>Map</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for battle in battles %}
+            <tr>
+                <td>{{ battle.id }}</td>
+                <td>{{ battle.dateOfBattle }}</td>
+                <td>{% for battlePlayer in battle.Players %}
+                        {{ battlePlayer }}
+                    {% endfor %}
+                </td>
+                <td>{{ battle.battleMap }}</td>
+                <td>
+                    <a href="{{ path('app_battle_show', {'id': battle.id}) }}">show</a>
+                    <a href="{{ path('app_battle_edit', {'id': battle.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_battle_new') }}">Create new</a>
+{% endblock %}

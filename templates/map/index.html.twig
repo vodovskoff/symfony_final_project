@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Map index{% endblock %}
+
+{% block body %}
+    <h1>Map index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>MapName</th>
+                <th>Count of Battle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for map in maps %}
+            <tr>
+                <td>{{ map.id }}</td>
+                <td>{{ map.mapName }}</td>
+                <td>{{ mapBattles[map.id] }}</td>
+                <td>
+                    <a href="{{ path('app_map_show', {'id': map.id}) }}">show</a>
+                    <a href="{{ path('app_map_edit', {'id': map.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_map_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tank{% endblock %}
+
+{% block body %}
+    <h1>Edit Tank</h1>
+
+    {{ include('tank/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_tank_index') }}">back to list</a>
+
+    {{ include('tank/_delete_form.html.twig') }}
+{% endblock %}

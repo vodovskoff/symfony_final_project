@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tank{% endblock %}
+
+{% block body %}
+    <h1>Create new Tank</h1>
+
+    {{ include('tank/_form.html.twig') }}
+
+    <a href="{{ path('app_tank_index') }}">back to list</a>
+{% endblock %}

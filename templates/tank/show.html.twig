@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tank{% endblock %}
+
+{% block body %}
+    <h1>Tank</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tank.id }}</td>
+            </tr>
+            <tr>
+                <th>TankName</th>
+                <td>{{ tank.tankName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tank_index') }}">back to list</a>
+
+    <a href="{{ path('app_tank_edit', {'id': tank.id}) }}">edit</a>
+
+    {{ include('tank/_delete_form.html.twig') }}
+{% endblock %}

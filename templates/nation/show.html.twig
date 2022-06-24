@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nation{% endblock %}
+
+{% block body %}
+    <h1>Nation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nation.id }}</td>
+            </tr>
+            <tr>
+                <th>NationName</th>
+                <td>{{ nation.nationName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_nation_index') }}">back to list</a>
+
+    <a href="{{ path('app_nation_edit', {'id': nation.id}) }}">edit</a>
+
+    {{ include('nation/_delete_form.html.twig') }}
+{% endblock %}

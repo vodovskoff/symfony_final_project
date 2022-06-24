@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Map{% endblock %}
+
+{% block body %}
+    <h1>Map</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ map.id }}</td>
+            </tr>
+            <tr>
+                <th>MapName</th>
+                <td>{{ map.mapName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_map_index') }}">back to list</a>
+
+    <a href="{{ path('app_map_edit', {'id': map.id}) }}">edit</a>
+
+    {{ include('map/_delete_form.html.twig') }}
+{% endblock %}
