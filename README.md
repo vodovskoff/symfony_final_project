@@ -1,2 +1,2 @@
 # symfony_final_project
-https://brat2.gq:1555
+http://brat2.gq:1555
